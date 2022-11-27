@@ -1,0 +1,256 @@
+body {
+    background:rgb(229, 233, 236);
+    font-size: 1.4em;
+    text-align: justify;
+    height: 100vh;
+    font-family:'Times New Roman', Times, serif;
+
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas:
+        "header"
+        "intro"
+        "main"
+        "footer"
+}
+
+
+/* HEADER */
+header {
+    background: rgb(238,238,238);
+    padding: 10px;
+    grid-area: header;
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+        "brand brand"
+        "nav tools";
+}
+
+header .brand {
+    background: rgb(221,221,221);
+    grid-area: brand;
+    font-family:  Georgia, 'Times New Roman', Times, serif;
+}
+
+header nav {
+    background: rgb(221,221,221);
+    grid-area: nav;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header .tools {
+    background: rgb(221,221,221);
+    grid-area: tools;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+/* INTRO */
+.intro {
+    background:rgba(221,221,221);
+    padding: 10px;
+    grid-area: intro;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+        "action";
+}
+
+.intro .action {
+    background: rgb(204,204,204);
+    grid-area: action;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.intro .feature {
+    background: rgb(204,204,204);
+    grid-area: feature;
+}
+
+
+/* MAIN */
+main {
+    background: rgb(204,204,204);
+    padding: 10px;
+    grid-area: main;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas: 
+        "feature"
+        "ad"
+        "listing";
+}
+
+main .feature {
+    background: rgb(187,187,187);
+    grid-area: feature;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+main .mobile-ad {
+    grid-area: ad;
+}
+
+main .paragraphs {
+    background: rgb(187,187,187);
+    grid-area: listing;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+}
+.list:hover{
+    background-color: rgb(70, 75, 73);
+    box-shadow: 10px 10px 5px rgb(66, 62, 62);
+    color: rgb(255,165,0);
+}
+    
+/* FOOTER */
+footer {
+    background: rgb(255,165,0);
+    padding: 10px;
+    grid-area: footer;
+    text-align: center;
+}
+
+/* Hide Sections */
+.desktop-ad {
+    grid-area: ad;
+    display: none;
+}
+
+.intro .feature {
+    display: none;
+}
+
+/* SIDEBAR */
+.sidebar {
+    background: rgb(193, 192, 192);
+    padding: 10px;
+    grid-area: sidebar;
+
+    display: none;
+}
+
+.sidebar .feature {
+    background: rgb(255,165,0);
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* OTHER*/
+.mobile-ad img {
+    vertical-align: top;
+    width: 100%;
+}
+
+.desktop-ad img {
+    vertical-align: top;
+    width: 350px;
+}
+
+
+/* TABLET layout */
+@media (min-width: 576px) {
+    body {
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas:
+            "header"
+            "intro"
+            "main"
+            "sidebar"
+            "footer";
+    }
+
+    /* HEADER (tablet) */
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            "brand nav tools";
+    }
+
+    /* INTRO (tablet) */
+    .intro {
+        grid-template-areas:
+            "feature"
+            "action";
+    }
+
+    .intro .feature {
+        display: block;
+    }
+
+    /* MAIN (tablet) */
+    main {
+        grid-template-columns: 1fr 200px;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "feature ad"
+            "listing listing";
+    }
+
+    /* SIDEBAR (tablet) */
+    .sidebar {
+        display: grid;
+        text-align: center;
+       
+    }
+
+    .mobile-ad img {
+        width: 200px;
+    }
+}
+
+
+
+     /* DESKTOP layout */
+    @media (min-width: 992px) {
+    body {
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "intro ad"
+            "main sidebar"
+            "footer footer"
+    }
+
+    /* INTRO (desktop) */
+    .intro {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "feature action"
+    }
+
+    /* MAIN (desktop) */
+    main {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "feature listing"
+    }
+
+    .mobile-ad {
+        display: none;
+    }
+
+    .desktop-ad {
+        display: block;
+    }
+}
